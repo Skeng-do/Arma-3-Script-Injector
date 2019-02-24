@@ -143,8 +143,8 @@ void startup()
 			{
 				while (!pidR6S)
 				{
-					pidR6S = FindProcessId2222(processname);
-					baseAddrR6S = (UINT_PTR)kem.BaseAddy(META_STRING("arma3_x64.exe"), pidR6S);
+					ProccessID = FindProcessId2222(processname);
+					BaseAddress = (UINT_PTR)kem.BaseAddy(META_STRING("arma3_x64.exe"), ProccessID);
 					Sleep(10);
 				}
 				checkpidkey = true;
@@ -154,8 +154,8 @@ void startup()
 		Sleep(7);
 	};
 
-	if (pidR6S)
-		pMem = new Kernel::KernelMemory(pidR6S);
+	if (ProccessID)
+		pMem = new Kernel::KernelMemory(ProccessID);
 }
 
 void CheckDriver()
@@ -182,7 +182,7 @@ std::string ReadArmaString(DWORD64 Address)
 
 uint64_t GetWorld()
 {
-	return Read(uint64_t, baseAddrR6S + World);
+	return Read(uint64_t, BaseAddress + World);
 }
 
 uint64_t GetLocalPlayer()
