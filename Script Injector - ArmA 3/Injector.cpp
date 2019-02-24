@@ -4,24 +4,10 @@
 
 kernelmemes kem(META_STRING("\\\\.\\MountPointManager"));
 
-int pidR6S;
-UINT_PTR baseAddrR6S;
+int ProccessID;
+UINT_PTR BaseAddress;
 bool checkpidkey = false;
 string processname = META_STRING("arma3_x64.exe");
-
-string RandomString(int len)
-{
-	srand(time(0));
-	string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	string newstr;
-	int pos;
-	while (newstr.size() != len) {
-		pos = ((rand() % (str.size() - 1)));
-		newstr += str.substr(pos, 1);
-	}
-	return newstr;
-}
-
 namespace Scripts
 {
 	string hint = RandomString(7);
@@ -73,7 +59,7 @@ namespace Kernel {
 
 		KernelMemory(DWORD pid)
 		{
-			this->pID = pid; // where you get the game pid ? show me the driver source
+			this->pID = pid; 
 		}
 
 		__forceinline BOOLEAN KeRtlCopyMemory(const DWORD64 Address, const PVOID Buffer, const DWORD_PTR Size, const BOOLEAN Write) {
