@@ -190,7 +190,7 @@ uint64_t GetLocalPlayer()
 	uint64_t pWorld = GetWorld();
 
 	if(pWorld)
-	return Read(uint64_t, pWorld + LocalPlayer); // why is reading like x86 ? idk xd it works tho am 100% sure these offsets are correct
+	return Read(uint64_t, pWorld + LocalPlayer);
 
 	return 0;
 }
