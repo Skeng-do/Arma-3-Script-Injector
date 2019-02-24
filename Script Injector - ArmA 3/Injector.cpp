@@ -230,7 +230,7 @@ void InjectScript(string script)
 
 void killInfistar()
 {
-	uint64_t _world = Read(uint64_t, World + baseAddrR6S);
+	uint64_t _world = Read(uint64_t, World + BaseAddress);
 	uint64_t _scriptVm = Read(uint64_t, _world + ArmaScripts::ScriptVm);
 	int _scriptCount = Read(int, _world + ArmaScripts::ScriptThreads);
 
@@ -307,7 +307,7 @@ void dumpscripts()
 
 uint64_t getplayerinfo()
 {
-	uint64_t _world = Read(uint64_t, World + baseAddrR6S);
+	uint64_t _world = Read(uint64_t, World + BaseAddress);
 	uint64_t _cameron = Read(uint64_t, _world + CameraPointer);
 	return Read(uint64_t, _cameron + 0x8);
 }
@@ -365,7 +365,7 @@ UINT_PTR GetBeModuleBase()
 
 void scriptRestrictionKiller() 
 {
-	uint64_t network_mgr = Read(uint64_t, baseAddrR6S + 0x251CA18);
+	uint64_t network_mgr = Read(uint64_t, BaseAddress + 0x251CA18);
 
 	uint64_t network_client = Read(uint64_t, network_mgr + 0x48);
 
